@@ -771,3 +771,7 @@ class DictConfig(BaseContainer, MutableMapping[Any, Any]):
         for k, v in non_init_field_items.items():
             setattr(result, k, v)
         return result
+
+    def __json__(self):
+        return self._to_object()
+
